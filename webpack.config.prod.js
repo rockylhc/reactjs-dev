@@ -4,10 +4,16 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const builddir = 'build';
+const modernizrOptions = {
+  'feature-detects': [
+    "input",
+    "inputtypes",
+  ]
+};
 module.exports = {
     entry: {
       bundle: resolve(__dirname, "src/App.js"),
-      vendor: ['react','redux','redux-thunk', 'react-router','redux-immutable-state-invariant']
+      vendor: ['react','redux','react-redux','redux-thunk', 'react-router','redux-immutable-state-invariant']
     },
   output: {
     path: resolve(__dirname, builddir),
@@ -38,12 +44,21 @@ module.exports = {
       loader: 'html-loader'
     },{
       test: /\.(eot|svg|ttf|woff|woff2|gif|jpg|png)$/i,
-
       loader: 'file-loader',
       options: {
         name: '[path][name].[ext]',
       }
+    },{
+      loader: 'webpack-modernizr-loader',
+      options: modernizrOptions,
+      test: /\.modernizrrc$/,
+      exclude: /node_modules/
     }]
+  },
+  resolve:{
+    alias: {
+      modernizr$: resolve(__dirname, ".modernizrrc")
+    }
   },
   plugins: [
     new ExtractTextPlugin({

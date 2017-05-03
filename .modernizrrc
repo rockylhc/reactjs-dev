@@ -1,0 +1,12 @@
+{
+    "options": [
+         "setClasses"
+    ],
+    "feature-detects": [
+        "input",
+        "inputtypes",
+        "test/css/flexbox",
+                "test/es6/promises",
+                "test/serviceworker"
+    ]
+}
