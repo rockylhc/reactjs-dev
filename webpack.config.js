@@ -32,10 +32,6 @@ module.exports = {
         presets: ['es2015','react']
       }
     },{
-      test: /\.json$/,
-      exclude: /node_modules/,
-      loaders: 'json-loader'
-    },{
       test: /\.scss$/,
       exclude: /node_modules/,
       loader: 'style-loader'
@@ -46,7 +42,7 @@ module.exports = {
       test: /\.html$/,
       loader: 'html-loader'
     },{
-      test: /\.(eot|svg|ttf|woff|woff2|gif|jpg|png)$/i,
+      test: /\.(eot|svg|ttf|woff|woff2|gif|jpg|png|json)$/i,
       loader: 'file-loader',
       options: {
         name: '[path][name].[ext]',
@@ -59,6 +55,7 @@ module.exports = {
     }]
   },
   plugins: [
+
       new webpack.HotModuleReplacementPlugin(),
       new HtmlWebpackPlugin({
 		  title:'React',
