@@ -6,7 +6,7 @@ import CourseList from './CourseList';
 import MessageShow from './MessageShow';
 import * as courseActions from '../../actions/courseActions';
 import LinkComponent from '../common/LinkComponent';
-
+import {Grid, Item} from 'semantic-ui-react';
 class CoursesPage extends React.Component{
   constructor(props, context){
     super(props, context);
@@ -20,17 +20,27 @@ class CoursesPage extends React.Component{
     const {courses, message} = this.props;
 
     return (
-      <div>
-        <h1>Courses</h1>
-        <MessageShow message={this.props.message} />
-        <Link
-          className="btn btn-primary"
-          to="/course"
-        >Add Course</Link>
-        <LinkComponent componenttext="component1" />
-        <LinkComponent componenttext="component2" />
-        <CourseList courses={courses}/>
-      </div>
+
+      <Grid.Row>
+        <Grid.Column>
+          <h1>rockylhc learning react redux</h1>
+          <Grid.Row>
+            <Grid columns={4} verticalAlign="middle">
+              <MessageShow message={this.props.message} />
+              <Item>
+                <Item.Content content='Course' className='ui button' as={Link} to='/course' />
+              </Item>
+              <LinkComponent componenttext="component1" />
+              <LinkComponent componenttext="component2" />
+            </Grid>
+          </Grid.Row>
+
+        </Grid.Column>
+        <Grid.Column>
+          <CourseList courses={courses}/>
+        </Grid.Column>
+      </Grid.Row>
+
     );
   }
 }

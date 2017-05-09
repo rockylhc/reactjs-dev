@@ -1,4 +1,5 @@
 import React from 'react';
+import {Form} from 'semantic-ui-react';
 
 const TextInput = ({name, label, onChange, placeholder, value, error}) => {
   let wrapperClass = 'form-group';
@@ -7,9 +8,9 @@ const TextInput = ({name, label, onChange, placeholder, value, error}) => {
   }
 
   return (
-    <div className={wrapperClass}>
+    <Form.Field>
       <label htmlFor={name}>{label}</label>
-      <div className="field">
+
         <input
           type="text"
           name={name}
@@ -19,8 +20,8 @@ const TextInput = ({name, label, onChange, placeholder, value, error}) => {
           onChange={onChange}
         />
         {error && <div className="alert alert-danger">{error}</div>}
-      </div>
-    </div>
+
+    </Form.Field>
   )
 }
 

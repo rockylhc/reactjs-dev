@@ -1,4 +1,4 @@
-import en from './en-sg.json';
+import en from './en.json';
 import cn from './zh-cn.json';
 
 const messages = {

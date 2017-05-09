@@ -13,7 +13,7 @@ const modernizrOptions = {
 module.exports = {
     entry: {
       bundle: resolve(__dirname, "src/App.js"),
-      vendor: ['react','redux','react-redux','redux-thunk', 'react-router','redux-immutable-state-invariant']
+      vendor: ['react','redux','react-redux','redux-thunk', 'react-router','redux-immutable-state-invariant','semantic-ui-react']
     },
   output: {
     path: resolve(__dirname, builddir),
@@ -26,12 +26,8 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'babel-loader',
       query: {
-        presets: ['es2015','react']
+        presets: ['es2015','stage-2','react']
       }
-    },{
-      test: /\.json$/,
-      exclude: /node_modules/,
-      loaders: 'json-loader'
     },{
       test: /\.scss$/,
       exclude: /node_modules/,
@@ -48,6 +44,10 @@ module.exports = {
       options: {
         name: '[path][name].[ext]',
       }
+    },{
+      test: /\.json$/,
+      exclude: /node_modules/,
+      loaders: 'json-loader'
     },{
       loader: 'webpack-modernizr-loader',
       options: modernizrOptions,

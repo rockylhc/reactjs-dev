@@ -1,15 +1,15 @@
 import React from 'react';
 import {Link} from 'react-router';
-
+import {Table} from 'semantic-ui-react';
 const CourseListRow = ({course}) => {
   return (
-    <tr>
-      <td><a href={course.watchHref} target="_blank">Watch</a></td>
-      <td><Link to={'/course/'+course.id}>{course.title}</Link></td>
-      <td>{course.authorId}</td>
-      <td>{course.category}</td>
-      <td>{course.length}</td>
-    </tr>
+    <Table.Row>
+      <Table.HeaderCell><a href={course.watchHref} target="_blank">Watch</a></Table.HeaderCell>
+      <Table.HeaderCell><Link to={'/course/'+course.id}>{course.title}</Link></Table.HeaderCell>
+      <Table.HeaderCell>{course.authorId}</Table.HeaderCell>
+      <Table.HeaderCell>{course.category}</Table.HeaderCell>
+      <Table.HeaderCell>{course.length}</Table.HeaderCell>
+    </Table.Row>
   );
 };
 

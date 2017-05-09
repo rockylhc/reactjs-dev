@@ -1,10 +1,10 @@
 import React from 'react';
-
+import {Message} from 'semantic-ui-react';
 const MessageShow = ({message}) => {
   return (
-    <span>
+    <Message>
       {message}
-    </span>
+    </Message>
   );
 }
 

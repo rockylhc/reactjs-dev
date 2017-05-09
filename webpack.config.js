@@ -29,7 +29,7 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'babel-loader',
       query: {
-        presets: ['es2015','react']
+        presets: ['es2015', 'stage-2','react']
       }
     },{
       test: /\.scss$/,
@@ -42,11 +42,15 @@ module.exports = {
       test: /\.html$/,
       loader: 'html-loader'
     },{
-      test: /\.(eot|svg|ttf|woff|woff2|gif|jpg|png|json)$/i,
+      test: /\.(eot|svg|ttf|woff|woff2|gif|jpg|png)$/i,
       loader: 'file-loader',
       options: {
         name: '[path][name].[ext]',
       }
+    },{
+      test: /\.json$/,
+      loader: 'json-loader',
+      exclude: /node_modules/,
     },{
       loader: 'webpack-modernizr-loader',
       options: modernizrOptions,

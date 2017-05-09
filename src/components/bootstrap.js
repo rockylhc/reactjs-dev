@@ -19,9 +19,7 @@ class Bootstrap extends Component{
         return (
             <Container>
               <Grid.Row>
-
                   <Header loading={this.props.loading}  />
-
               </Grid.Row>
               <Grid.Row>
                 <Grid.Column>

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Form} from 'semantic-ui-react';
 
 const SelectInput = ({name, label, onChange, defaultOption, value, error, options}) => {
   return (
@@ -7,7 +8,6 @@ const SelectInput = ({name, label, onChange, defaultOption, value, error, option
       <div className="field">
         <select
           name={name}
-          className="form-control"
           value={value}
           onChange={onChange}
         >

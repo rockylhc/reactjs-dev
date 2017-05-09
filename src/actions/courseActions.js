@@ -5,6 +5,7 @@ import {beginAjaxCall, ajaxCallError} from './ajaxStatusActions';
 export function loadCoursesSuccess(courses){
   return { type:types.LOAD_COURSES_SUCCESS, courses}
 }
+
 export function createCourseSuccess(course){
   return {type:types.CREATE_COURSE_SUCCESS, course}
 }

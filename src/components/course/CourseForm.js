@@ -1,10 +1,10 @@
 import React from 'react';
 import TextInput from '../common/TextInput';
 import SelectInput from '../common/SelectInput';
-
+import {Form} from 'semantic-ui-react';
 const CourseForm = ({course, allAuthors, onSave, onChange, saving, errors}) => {
   return(
-    <form>
+    <Form>
       <h1>Manage Course</h1>
       <TextInput
         name="title"
@@ -35,6 +35,7 @@ const CourseForm = ({course, allAuthors, onSave, onChange, saving, errors}) => {
         onChange={onChange}
         error={errors.length}
       />
+      <Form.Button>Submit</Form.Button>
       <input
         type="submit"
         disabled={saving}
@@ -42,7 +43,7 @@ const CourseForm = ({course, allAuthors, onSave, onChange, saving, errors}) => {
         className="btn btn-primary"
         onClick={onSave}
       />
-    </form>
+    </Form>
   )
 }
 export default CourseForm;

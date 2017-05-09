@@ -70,7 +70,6 @@ function getCourseById(courses, id){
 }
 
 function mapStateToProps(state, ownProps){
-  console.log(state);
   let course ={id:'', watchHref:'',title:'',authorId:'',length:'',category:''}
   const courseId = ownProps.params.id;
 
