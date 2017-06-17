@@ -1,7 +1,5 @@
 export default{
-  authors:[],
-  courses:[],
-  shops:[],
+  todos:[],
   numAjaxCallsInProgress:0,
   message: 'bar',
   user: {},

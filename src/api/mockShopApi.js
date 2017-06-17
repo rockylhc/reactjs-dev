@@ -8,37 +8,43 @@ const shops = [
     id: "shop-01",
     title: "Shop 01",
     img: "http://placehold.it/350x150?text=Shop%2001",
-    category: "Chinese Cuisine"
+    category: "Chinese Cuisine",
+    categoryId: "chinese-cuisine"
   },
   {
     id: "shop-02",
     title: "Shop 02",
     img: "http://placehold.it/350x150?text=Shop%2002",
-    category: "Western Cuisine"
+    category: "Western Cuisine",
+    categoryId: "western-cuisine"
   },
   {
     id: "shop-03",
     title: "Shop 03",
     img: "http://placehold.it/350x150?text=Shop%2003",
-    category: "Indian Cuisine"
+    category: "Indian Cuisine",
+    categoryId: "indian-cuisine"
   },
   {
     id: "shop-04",
     title: "Shop 04",
     img: "http://placehold.it/350x150?text=Shop%2004",
-    category: "Malay Cuisine"
+    category: "Malay Cuisine",
+    categoryId: "malay-cuisine"
   },
   {
     id: "shop-05",
     title: "Shop 05",
     img: "http://placehold.it/350x150?text=Shop%2005",
-    category: "Japanese Cuisine"
+    category: "Japanese Cuisine",
+    categoryId: "japanese-cuisine"
   },
   {
     id: "shop-06",
     title: "Shop 06",
     img: "http://placehold.it/350x150?text=Shop%2006",
-    category: "Korean Cuisine"
+    category: "Korean Cuisine",
+    categoryId: "korean-cuisine"
   }
 ];
 

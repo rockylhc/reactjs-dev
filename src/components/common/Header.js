@@ -1,32 +1,37 @@
-import React,{Component} from 'react';
-import {Link, IndexLink} from 'react-router';
+import React,{ Component } from 'react';
+import {Link} from 'react-router-dom';
 import LoadingDots from './LoadingDots';
-import {Image, Grid, Search} from 'semantic-ui-react';
+import Toolbar from 'material-ui/Toolbar';
+import {ListItem} from 'material-ui/List';
+import Icon from 'material-ui/Icon';
+import {NavLink} from 'react-router-dom';
+import IconButton from 'material-ui/IconButton';
+import HomeIcon from 'material-ui-icons/Home';
+import Button from 'material-ui/Button';
 import TranslatorHOC from '../../HOC/TranslatorHOC';
+import { withStyles, createStyleSheet } from 'material-ui/styles';
+
+const styleSheet = createStyleSheet('FlatButtons', theme => ({
+  button: {
+    margin: theme.spacing.unit,
+  },
+}));
 
 class Header extends Component {
   render() {
-    const {loading, i18n} = this.props;
+    const {loading, i18n, classes} = this.props;
     return(
-      <nav>
-        <Image
-          src="http://placehold.it/350x150?text=Howay"
-          size="small"
-          as={IndexLink} to='/'
-        />
+      <Toolbar>
+            <NavLink to="/" activeClassName="active">
+              <IconButton className={classes.button}>
+                <HomeIcon />
+              </IconButton>
 
-        <Search
-          loading={false}
-          aligned='right'
-        />
-
-        <Link to='/about' activeClassName='active'>
-          {i18n['aboutUs']}
-        </Link>
-        {" | "}
-        <Link to='/courses' activeClassName='active'>{i18n['navigation.courses']}</Link>
-        {loading && <LoadingDots interval={100} dots={5} /> }
-      </nav>
+            </NavLink>
+            <NavLink to='/about'  activeClassName="active"><Button primary className={classes.button}>{i18n['aboutUs']}</Button></NavLink>
+            <NavLink to='/todo'  activeClassName="active"><Button accent className={classes.button}>{i18n['navigation.todo']}</Button></NavLink>
+          <ListItem>{loading && <LoadingDots interval={100} dots={5} /> }</ListItem>
+      </Toolbar>
     );
   }
 }
@@ -34,5 +39,4 @@ class Header extends Component {
 function mapStateToProps(state, ownProps){
   return{loading:loading};
 }
-export default TranslatorHOC(Header);
-
+export default withStyles(styleSheet)(TranslatorHOC(Header));

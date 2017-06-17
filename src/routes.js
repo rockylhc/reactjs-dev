@@ -1,21 +1,21 @@
 import React from 'react';
-import {Route, IndexRoute} from 'react-router';
-import App from './components/bootstrap';
+import App from './components/App';
+import {Route, Switch } from 'react-router-dom';
 import HomePage from './components/home/HomePage';
 import AboutPage from './components/about/AboutPage';
-import CoursesPage from './components/course/CoursesPage';
-import ShopsPage from './components/shops/ShopsPage';
-import ManageCoursePage from './components/course/ManageCoursePage';
-import ViewShopPage from './components/shops/ViewShopPage';
+import TodoPage from './components/todo/TodoPage';
+import ManageTodoPage from './components/todo/ManageTodoPage';
+import ViewTodoPage from './components/todo/ViewTodoPage';
 
-export default(
-  <Route path='/' component={App}>
-    <IndexRoute component={HomePage} />
-    <Route path='about' component={AboutPage} />
-    <Route path='courses' component={CoursesPage} />
-    <Route path='course' component={ManageCoursePage} />
-    <Route path='course/:id' component={ManageCoursePage} />
-    <Route path='shops' component={ShopsPage} />
-    <Route path='shop/:id' component={ViewShopPage} />
-  </Route>
+const RouteConfig = ()=> (
+  <Switch>
+    <App exact path="/" component={HomePage}/>
+    <App path='about' component={AboutPage}/>
+    <App exact path='todo' component={TodoPage}/>
+    <App path='todo/create' component={ManageTodoPage}/>
+    <App path='todo/edit/:id' component={ManageTodoPage}/>
+    <App path='todo/:id' component={ViewTodoPage}/>
+  </Switch>
 );
+
+export default RouteConfig;

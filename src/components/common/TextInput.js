@@ -1,27 +1,19 @@
 import React from 'react';
-import {Form} from 'semantic-ui-react';
+import TextField from 'material-ui/TextField'
 
-const TextInput = ({name, label, onChange, placeholder, value, error}) => {
-  let wrapperClass = 'form-group';
-  if(error && error.length > 0){
-    wrapperClass += ' '+'haserror';
-  }
-
+const TextInput = props => {
   return (
-    <Form.Field>
-      <label htmlFor={name}>{label}</label>
+    <div>
+      <TextField
+        InputProps={{ placeholder: props.placeholder }}
+        label={props.label}
+        defaultValue={props.value}
+        value={props.value}
+        name={props.name}
+      />
 
-        <input
-          type="text"
-          name={name}
-          className="form-control"
-          placeholder={placeholder}
-          value={value}
-          onChange={onChange}
-        />
-        {error && <div className="alert alert-danger">{error}</div>}
-
-    </Form.Field>
+      {props.touched && error && <span>{error}</span>}
+    </div>
   )
 }
 

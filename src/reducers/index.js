@@ -1,15 +1,13 @@
 import {combineReducers} from 'redux';
-import courses from './courseReducer';
-import authors from './authorReducer';
-import shops from './shopReducer';
+import todos from './todoReducer';
 import ajaxCallsInProgress from './ajaxStatusReducer';
 import message from './messageReducer';
+import {reducer as formReducer } from 'redux-form';
 const rootReducer = combineReducers({
-  courses,
-  authors,
   ajaxCallsInProgress,
   message,
-  shops
+  todos,
+  form:formReducer
 });
 
 export default rootReducer;

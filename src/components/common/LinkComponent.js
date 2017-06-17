@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as messageActions from '../../actions/messageActions';
-import {Item} from 'semantic-ui-react';
+import Button from 'material-ui/Button';
 class LinkComponent extends React.Component{
   constructor(props, context){
     super(props, context);
@@ -18,9 +18,7 @@ class LinkComponent extends React.Component{
     const {componenttext} = this.props;
 
     return(
-    <Item>
-      <Item.Content content={componenttext} className='ui button' onClick={this.onClick} />
-    </Item>
+      <Button label={componenttext} onClick={this.onClick} />
     );
   }
 }

@@ -6,7 +6,7 @@
         "input",
         "inputtypes",
         "test/css/flexbox",
-                "test/es6/promises",
-                "test/serviceworker"
+        "test/es6/promises",
+        "test/serviceworker"
     ]
 }

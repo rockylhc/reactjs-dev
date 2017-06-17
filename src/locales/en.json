@@ -1,5 +1,8 @@
 {
   "aboutUs": "About Us",
-  "navigation.shops":"Shops",
-  "navigation.courses":"Courses"
+  "addTodo":"Add Todo",
+  "date":"Date",
+  "deleteTodo":"Delete Restaurant",
+  "manageTodo":"Manage Restaurant",
+  "navigation.todo":"Todo"
 }
