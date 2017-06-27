@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import * as todoActions from '../../actions/todoActions';
 
@@ -21,7 +22,8 @@ class ViewTodoPage extends React.Component{
     const {todo} = this.state;
     return (
         <div>
-          view to do {todo.id} {todo.title}
+
+          <Link to={`/todo/edit/${todo.id}`}>Edit to do {todo.id} {todo.title}</Link>
         </div>
 
     );

@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as TodoActions from '../../actions/todoActions';
-
 import TodoForm from './TodoForm';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import TranslatorHOC from '../../HOC/TranslatorHOC';
@@ -35,10 +34,13 @@ class ManageTodoPage extends React.Component{
 
   updateTodoState(event){
     console.log(event);
+    console.log(this.state);
+
     const field = event.target.name;
     let Todo = this.state.todo;
     Todo[field] = event.target.value;
     return this.setState({todo: todo});
+
   }
 
   handleClick(event){
@@ -46,15 +48,18 @@ class ManageTodoPage extends React.Component{
     console.log('click');
   }
 
-  saveTodo(event){
+  saveTodo(event, dispatch){
     event.preventDefault();
     this.setState({saving:true});
+    console.log(this.state)
+    /*
     this.props.actions.saveTodo(this.state.todo)
       .then(()=> this.redirect())
       .catch(error=>{
         this.setState({saving:false});
         console.log(error);
       });
+      */
   }
 
   redirect(){
@@ -63,7 +68,6 @@ class ManageTodoPage extends React.Component{
   }
 
   render(){
-
     return (
       <TodoForm
         onChange={this.updateTodoState}
@@ -82,7 +86,6 @@ function getTodoById(todos, id){
   if(todo.length) return todo[0];
   return null;
 }
-
 
 function mapStateToProps(state, ownProps){
   let todo ={title:''};

@@ -1,4 +1,4 @@
-const { resolve } = require('path');
+const { resolve, join } = require('path');
 const webpack = require("webpack");
 const HtmlWebpackPlugin  = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -81,7 +81,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      modernizr$: resolve(__dirname, ".modernizrrc")
+      modernizr$: resolve(__dirname, ".modernizrrc"),
+      'redux-form-validation': join(process.cwd(), 'src/validation/index.js')
     }
   },
   devtool: 'source-map',

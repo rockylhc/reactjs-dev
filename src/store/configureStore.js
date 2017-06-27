@@ -12,8 +12,6 @@ export const hashHistory = createHashHistory({
   getUserConfirmation: (message, callback) => callback(window.confirm(message))
 });
 
-
-
 export default function configureStore(initialState){
   return createStore(
     connectRouter(hashHistory)(rootReducer),

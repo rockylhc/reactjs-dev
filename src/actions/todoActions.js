@@ -2,19 +2,19 @@ import * as types from './actionTypes';
 import todoApi from '../api/mockTodoApi';
 import {beginAjaxCall, ajaxCallError} from './ajaxStatusActions';
 
-export function loadTodosSuccess(todos){
+export let loadTodosSuccess = (todos) => {
   return { type:types.LOAD_TODOS_SUCCESS, todos}
 }
 
-export function createTodoSuccess(todo){
+export let createTodoSuccess = (todo) =>{
   return {type:types.CREATE_TODO_SUCCESS, todo}
 }
 
-export function updateTodoSuccess(todo){
+export let updateTodoSuccess = (todo) =>{
   return {type:types.UPDATE_TODO_SUCCESS, todo}
 }
 
-export function loadTodos(){
+export let loadTodos = () =>{
   return function (dispatch){
     dispatch(beginAjaxCall());
     return todoApi.getAllTodos().then(todos=>{
@@ -25,7 +25,7 @@ export function loadTodos(){
   }
 }
 
-export function saveTodo(todo){
+export let saveTodo = (todo) =>{
   return function (dispatch, getState){
     dispatch(beginAjaxCall());
     return todoApi.saveTodo(todo).then(savedTodo=>{

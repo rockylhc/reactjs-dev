@@ -1,7 +1,7 @@
 export default{
   todos:[],
   numAjaxCallsInProgress:0,
-  message: 'bar',
+  announcement: 'bar',
   user: {},
   app:{}
 }

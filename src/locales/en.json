@@ -2,7 +2,9 @@
   "aboutUs": "About Us",
   "addTodo":"Add Todo",
   "date":"Date",
-  "deleteTodo":"Delete Restaurant",
-  "manageTodo":"Manage Restaurant",
-  "navigation.todo":"Todo"
+  "deleteTodo":"Delete Todo",
+  "home":"Home",
+  "manageTodo":"Manage Todo",
+  "navigation.todo":"Todo",
+  "view":"View"
 }

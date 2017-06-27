@@ -1,14 +1,13 @@
 import React,{ Component } from 'react';
-import {Link} from 'react-router-dom';
 import LoadingDots from './LoadingDots';
 import Toolbar from 'material-ui/Toolbar';
 import {ListItem} from 'material-ui/List';
-import Icon from 'material-ui/Icon';
 import {NavLink} from 'react-router-dom';
 import IconButton from 'material-ui/IconButton';
 import HomeIcon from 'material-ui-icons/Home';
 import Button from 'material-ui/Button';
 import TranslatorHOC from '../../HOC/TranslatorHOC';
+import BroadcastButton from './BroadcastButton';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 
 const styleSheet = createStyleSheet('FlatButtons', theme => ({
@@ -19,7 +18,7 @@ const styleSheet = createStyleSheet('FlatButtons', theme => ({
 
 class Header extends Component {
   render() {
-    const {loading, i18n, classes} = this.props;
+    const {loading, i18n, classes, message} = this.props;
     return(
       <Toolbar>
             <NavLink to="/" activeClassName="active">
@@ -28,8 +27,10 @@ class Header extends Component {
               </IconButton>
 
             </NavLink>
-            <NavLink to='/about'  activeClassName="active"><Button primary className={classes.button}>{i18n['aboutUs']}</Button></NavLink>
-            <NavLink to='/todo'  activeClassName="active"><Button accent className={classes.button}>{i18n['navigation.todo']}</Button></NavLink>
+            <NavLink to='/about'  activeClassName="active"><Button raised color="primary" className={classes.button}>{i18n['aboutUs']}</Button></NavLink>
+            <NavLink to='/todo'  activeClassName="active"><Button raised color="accent" className={classes.button}>{i18n['navigation.todo']}</Button></NavLink>
+            <BroadcastButton broadcastMsg="announcement 1" />
+            <BroadcastButton broadcastMsg="announcement 2" />
           <ListItem>{loading && <LoadingDots interval={100} dots={5} /> }</ListItem>
       </Toolbar>
     );
@@ -37,6 +38,6 @@ class Header extends Component {
 }
 
 function mapStateToProps(state, ownProps){
-  return{loading:loading};
+  return{loading:loading, message:message};
 }
 export default withStyles(styleSheet)(TranslatorHOC(Header));

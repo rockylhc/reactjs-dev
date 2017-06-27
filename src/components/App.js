@@ -54,7 +54,8 @@ class App extends Component{
 
 function mapStateToProps(state, ownProps){
   return {
-    loading:state.ajaxCallsInProgress > 0
+    loading:state.ajaxCallsInProgress > 0,
+    message: state.message
   }
 }
 

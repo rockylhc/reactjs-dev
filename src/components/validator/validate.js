@@ -1,15 +1,20 @@
-const validate = values => {
-  const errors = {};
-  const requiredFields = [ 'title' ];
-  requiredFields.forEach(field => {
+import validatorjs from 'validatorjs';
 
-     if (!values[ field ]) {
-     errors[ field ] = 'Required'
-     }
-  })
+const plugins = { dvr: validatorjs };
 
-  return errors
-
-}
-
-export default validate;
+const validate = [{
+  name: 'email',
+  label: 'Email',
+  placeholder: 'Insert Email',
+  rules: 'required|email|string|between:5,25',
+}, {
+  name: 'password',
+  label: 'Password',
+  placeholder: 'Insert Password',
+  rules: 'required|string|between:5,25',
+}, {
+  name: 'passwordConfirm',
+  label: 'Password Confirmation',
+  placeholder: 'Confirm Password',
+  rules: 'same:password',
+}];

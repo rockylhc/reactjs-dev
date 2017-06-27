@@ -48,6 +48,29 @@ class TodoApi {
       }, delay);
     });
   }
+
+  static saveTodo(todo) {
+    todo = Object.assign({}, todo); // to avoid manipulating object passed in.
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        // Simulate server-side validation
+        const minTodoTitleLength = 1;
+        if (todo.title.length < minTodoTitleLength ) {
+          reject(`Title must be at least ${minTodoTitleLength } characters.`);
+        }
+
+        if (todo.id) {
+          const existingTodoIndex = todos.findIndex(a => a.id == todo.id);
+          todos.splice(existingTodoIndex, 1, todo);
+        } else {
+          todo.id = generateId(todo);
+          todos.push(todo);
+        }
+
+        resolve(todo);
+      }, delay);
+    });
+  }
 }
 
 export default TodoApi;

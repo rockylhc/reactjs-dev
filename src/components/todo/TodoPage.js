@@ -44,6 +44,7 @@ class TodoPage extends React.Component{
 
 function mapStateToProps(state, ownProps){
   return {
+    message: state.message,
     todos: state.todos //from root reducer,
   };
 }

@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as messageActions from '../../actions/messageActions';
 import Button from 'material-ui/Button';
-class LinkComponent extends React.Component{
+class BroadcastButton extends React.Component{
   constructor(props, context){
     super(props, context);
 
@@ -12,13 +12,13 @@ class LinkComponent extends React.Component{
 
   onClick(event){
     event.preventDefault();
-    this.props.actions.logMessage(this.props.componenttext)
+    this.props.actions.broadcastMessage(this.props.broadcastMsg)
   }
   render(){
-    const {componenttext} = this.props;
+    const { broadcastMsg } = this.props;
 
     return(
-      <Button label={componenttext} onClick={this.onClick} />
+      <Button onClick={this.onClick}>{ broadcastMsg }</Button>
     );
   }
 }
@@ -26,7 +26,7 @@ class LinkComponent extends React.Component{
 function mapStateToProps(state, ownProps){
 
   return {
-    message: state.message
+    announcement: state.announcement
   };
 }
 
@@ -35,4 +35,4 @@ function mapDispatchToProps(dispatch){
     actions: bindActionCreators(messageActions, dispatch)
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(LinkComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(BroadcastButton);

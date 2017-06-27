@@ -1,10 +1,10 @@
 import * as types from './actionTypes';
-export function fireMessage(message){
-  return {type:types.NOTIFICATION_TRIGGER, message};
+export let fireMessage = (announcement) => {
+  return {type:types.NOTIFICATION_TRIGGER, announcement};
 }
 
-export function logMessage(message){
+export let broadcastMessage = (announcement) => {
   return function (dispatch){
-    dispatch(fireMessage(message));
+    dispatch(fireMessage(announcement));
   }
 }

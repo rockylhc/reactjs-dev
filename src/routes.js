@@ -9,12 +9,14 @@ import ViewTodoPage from './components/todo/ViewTodoPage';
 
 const RouteConfig = ()=> (
   <Switch>
-    <App exact path="/" component={HomePage}/>
-    <App path='about' component={AboutPage}/>
-    <App exact path='todo' component={TodoPage}/>
-    <App path='todo/create' component={ManageTodoPage}/>
-    <App path='todo/edit/:id' component={ManageTodoPage}/>
-    <App path='todo/:id' component={ViewTodoPage}/>
+    <App>
+      <Route exact path="/" component={HomePage}/>
+      <Route path='/about' component={AboutPage}/>
+      <Route exact path='/todo' component={TodoPage}/>
+      <Route exact path='/create/todo' component={ManageTodoPage}/>
+      <Route exact path='/todo/edit/:id' component={ManageTodoPage}/>
+      <Route exact path='/todo/:id' component={ViewTodoPage}/>
+    </App>
   </Switch>
 );
 

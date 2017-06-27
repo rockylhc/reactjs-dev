@@ -1,9 +1,9 @@
 import * as types from './actionTypes';
 
-export function beginAjaxCall(){
+export let beginAjaxCall = () =>{
   return {type:types.BEGIN_AJAX_CALL }
 }
 
-export function ajaxCallError(){
+export let ajaxCallError = () =>{
   return {type: types.AJAX_CALL_ERROR}
 }
