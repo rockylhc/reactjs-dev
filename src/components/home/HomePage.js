@@ -25,8 +25,8 @@ const styleSheet = createStyleSheet('Homepage', theme => ({
 
 class HomePage extends Component{
   render(){
-    const {i18n} = this.props;
-    const classes = this.props.classes;
+    const {i18n, classes} = this.props;
+
     return(
       <div>
         <Paper className={classes.root}>

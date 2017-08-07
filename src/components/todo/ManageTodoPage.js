@@ -5,53 +5,62 @@ import * as TodoActions from '../../actions/todoActions';
 import TodoForm from './TodoForm';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import TranslatorHOC from '../../HOC/TranslatorHOC';
+import update from 'immutability-helper';
+
 const styleSheet = createStyleSheet('PaperSheet', theme => ({
   root: theme.mixins.gutters({
     paddingTop: 16,
     paddingBottom: 16,
   }),
 }));
+
 class ManageTodoPage extends React.Component{
   constructor(props, context){
     super(props, context);
-
     this.state = {
-      todo:Object.assign({},this.props.todo),
+      todo:Object.assign({},props.todo),
       errors:{},
       saving: false
     };
 
+    this.handleFocus = this.handleFocus.bind(this);
     this.updateTodoState = this.updateTodoState.bind(this);
     this.saveTodo = this.saveTodo.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleReset = this.handleReset.bind(this);
   }
-
   componentWillReceiveProps(nextProps){
-    if(this.props.todo.id != nextProps.todo.id){
+    if(this.props.todo.guid != nextProps.todo.guid){
       this.setState({todo:Object.assign({}, nextProps.todo)});
     }
   }
-
-  updateTodoState(event){
-    console.log(event);
-    console.log(this.state);
-
-    const field = event.target.name;
+  updateTodoState(el, val){
     let Todo = this.state.todo;
-    Todo[field] = event.target.value;
-    return this.setState({todo: todo});
+    Todo[el] = val;
+    return this.setState(update(this.state,{todo:{[el]:{$set:val}}}));
+  }
 
+  handleFocus(event){
+    console.log(this.state);
+    //let todo = this.state.todo;
+    //todo["isTouched"] = true;
+    //return this.setState({todo:todo});
   }
 
   handleClick(event){
     event.preventDefault();
-    console.log('click');
+    //console.log('click');
+  }
+
+  handleReset(event){
+    event.preventDefault();
+    //console.log(this);
   }
 
   saveTodo(event, dispatch){
     event.preventDefault();
     this.setState({saving:true});
-    console.log(this.state)
+    //console.log(this.state)
     /*
     this.props.actions.saveTodo(this.state.todo)
       .then(()=> this.redirect())
@@ -71,7 +80,10 @@ class ManageTodoPage extends React.Component{
     return (
       <TodoForm
         onChange={this.updateTodoState}
+        onFocus={this.handleFocus}
+        onBlur={this.validateState}
         onClick={this.handleClick}
+        onReset={this.handleReset}
         onSave={this.saveTodo}
         todo={this.state.todo}
         errors={this.state.errors}
@@ -88,15 +100,19 @@ function getTodoById(todos, id){
 }
 
 function mapStateToProps(state, ownProps){
-  let todo ={title:''};
+  let todo ={guid:'',title:'',id:'',ancestor:'',created:''};
 
+  let errors = {};
   const todoId = ownProps.match.params.id;
 
   if(todoId && state.todos.length > 0 ){
     todo = getTodoById(state.todos, todoId);
   }
 
-  return{todo:todo};
+  return{
+    todo:todo,
+    errors:errors
+  };
 }
 
 function mapDispatchToProps(dispatch){

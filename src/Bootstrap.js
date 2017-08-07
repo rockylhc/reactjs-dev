@@ -1,6 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import configureStore, {hashHistory} from './store/configureStore';
+import {persistStore} from 'redux-persist'
 import {loadTodos} from './actions/todoActions';
 import {broadcastMessage} from './actions/messageActions';
 import {Provider} from 'react-redux';
@@ -13,7 +14,7 @@ import RouteConfig from './routes';
 
 const store = configureStore();
 store.dispatch(loadTodos());
-
+persistStore(store);
 const theme = createMuiTheme({
   palette: createPalette({
     type: 'light', // Switching the dark mode on is a single property value change.

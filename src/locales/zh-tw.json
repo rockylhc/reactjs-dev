@@ -3,6 +3,9 @@
   "addTodo":"新增 Todo",
   "date": "日期",
   "deleteTodo":"刪除 Todo",
+  "home":"首頁",
   "manageTodo":"管理 Todo",
-  "navigation.todo":"Todo"
+  "navigation.todo":"Todo",
+  "view":"查看",
+  "validationMessageMinLength":"請輸入至少${length}字元"
 }

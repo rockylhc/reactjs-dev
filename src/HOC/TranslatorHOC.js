@@ -4,7 +4,7 @@ const defaultLocale = 'en';
 const TranslatorHOC = (WrappedComponent) => {
   return class TranslatorHOC extends Component{
     render(){
-      let currLocale = 'en';
+      let currLocale = 'zh-tw';
       let language;
       try{
         language = require(`../locales/${currLocale}.json`);

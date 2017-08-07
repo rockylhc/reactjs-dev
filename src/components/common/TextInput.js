@@ -1,16 +1,15 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
+import Input from 'material-ui/Input';
 
 const TextInput = props => {
-console.log(props)
+//console.log(props)
   return (
-      <TextField
-        label={props.label}
-        onChange={props.onChange}
-        value={props.value||''}
-        type={props.type}
+      <Input
         name={props.name}
-      />
+        value={props.value}
+        onChange={props.onChange}
+        onBlur={props.onBlur}
+    />
   )
 }
 

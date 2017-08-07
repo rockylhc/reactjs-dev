@@ -6,5 +6,6 @@
   "home":"Home",
   "manageTodo":"Manage Todo",
   "navigation.todo":"Todo",
-  "view":"View"
+  "view":"View",
+  "validationMessageMinLength":"Please enter at least ${length} character"
 }
