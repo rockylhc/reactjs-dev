@@ -3,7 +3,6 @@ import {render} from 'react-dom';
 import configureStore, {hashHistory} from './store/configureStore';
 import {persistStore} from 'redux-persist'
 import {loadTodos} from './actions/todoActions';
-import {broadcastMessage} from './actions/messageActions';
 import {Provider} from 'react-redux';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 import createPalette from 'material-ui/styles/palette';

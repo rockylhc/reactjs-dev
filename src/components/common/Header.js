@@ -1,4 +1,5 @@
 import React,{ Component } from 'react';
+import {connect} from 'react-redux';
 import LoadingDots from './LoadingDots';
 import Toolbar from 'material-ui/Toolbar';
 import List,{ListItem, ListItemText} from 'material-ui/List';
@@ -50,7 +51,7 @@ class Header extends Component {
   };
 
   render() {
-    const {loading, i18n, classes, message} = this.props;
+    const {loading, i18n, classes} = this.props;
 
     return(
       <Toolbar>
@@ -106,9 +107,10 @@ class Header extends Component {
     );
   }
 }
-
 function mapStateToProps(state, ownProps){
-
-  return{loading:loading, message:message};
+  return {
+    loading:state.ajaxCallsInProgress > 0
+  };
 }
-export default withStyles(styleSheet)(TranslatorHOC(Header));
+
+export default TranslatorHOC(connect(mapStateToProps)(withStyles(styleSheet)(Header)));

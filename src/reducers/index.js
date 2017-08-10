@@ -1,11 +1,10 @@
 import {combineReducers} from 'redux';
 import todos from './todoReducer';
 import ajaxCallsInProgress from './ajaxStatusReducer';
-import announcement from './messageReducer';
-
+import app from './appReducer';
 const rootReducer = combineReducers({
   ajaxCallsInProgress,
-  announcement,
+  app,
   todos,
 });
 
