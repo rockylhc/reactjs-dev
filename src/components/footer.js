@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import NotificationCenter from './common/NotificationCenter';
 import Typography from 'material-ui/Typography';
+//import TranslatorHOC from '../HOC/TranslatorHOC';
+
 class Footer extends Component{
   constructor(props, context){
     super(props, context);
@@ -36,5 +38,7 @@ function mapStateToProps(state, ownProps){
     announcement: state.app.announcement
   }
 }
+
+//export default TranslatorHOC(connect(mapStateToProps)(Footer));
 
 export default connect(mapStateToProps)(Footer);

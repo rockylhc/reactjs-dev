@@ -51,7 +51,7 @@ class Header extends Component {
   };
 
   render() {
-    const {loading, i18n, classes} = this.props;
+    const {loading, classes, i18n} = this.props;
 
     return(
       <Toolbar>
@@ -109,6 +109,7 @@ class Header extends Component {
 }
 function mapStateToProps(state, ownProps){
   return {
+    locale: state.app.locale,
     loading:state.ajaxCallsInProgress > 0
   };
 }

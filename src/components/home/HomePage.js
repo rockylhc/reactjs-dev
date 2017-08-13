@@ -1,4 +1,5 @@
 import React,{ Component } from 'react';
+import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import Paper from 'material-ui/Paper';
 import Button from 'material-ui/Button';
@@ -24,23 +25,32 @@ const styleSheet = createStyleSheet('Homepage', theme => ({
 }));
 
 class HomePage extends Component{
+  constructor(props, context){
+    super(props, context);
+  }
   render(){
     const {i18n, classes} = this.props;
 
     return(
       <div>
-        <Paper className={classes.root}>
+        <Paper>
           <Typography type="headline" component="h1">
             {i18n['home']}
           </Typography>
           <Link to='/about'>
             <Button className={classes.button} raised>{i18n['aboutUs']}</Button>
           </Link>
-          <Link to='about'><Button  className={classes.button} raised>{i18n['view']}</Button></Link>
+          <Link to='about'><Button className={classes.button} raised>{i18n['view']}</Button></Link>
         </Paper>
       </div>
     );
   }
 }
+function mapStateToProps(state, ownProps){
+  return {
+    locale: state.app.locale,
+    loading:state.ajaxCallsInProgress > 0
+  };
+}
 
-export default TranslatorHOC(withStyles(styleSheet)(HomePage));
+export default TranslatorHOC(connect(mapStateToProps)(withStyles(styleSheet)(HomePage)));

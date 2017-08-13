@@ -4,33 +4,33 @@ import Footer from './footer';
 import Header from './common/Header';
 import Grid from 'material-ui/Grid';
 import {Route} from 'react-router-dom';
-/*
-var a = [4, 5, 6];
-var b = [1, 2, 3, ...a, 7, 8, 9, 0];
-console.log(b);
-*/
 
 class App extends Component{
+  renderChildren(){
+    let {children} = this.props;
 
-    render(){
-        return (
-            <Grid container>
-              <Grid item xs={12}>
-                  <Header loading={this.props.loading}  />
-              </Grid>
-              <Grid item xs={12}>
-              {this.props.children}
-              </Grid>
-              <Grid item xs={12}>
-                <Footer />
-              </Grid>
+    return React.Children.map(children, (child) =>
+      React.cloneElement(child,{locale:'zh-tw'})
+    )
+  }
+  render(){
+      return (
+          <Grid container>
+            <Grid item xs={12}>
+              <Header {...this.props}  />
             </Grid>
-        );
-    }
+            <Grid item xs={12}>
+              {this.renderChildren()}
+            </Grid>
+          </Grid>
+      );
+  }
+
 }
 
 function mapStateToProps(state, ownProps){
   return {
+    locale:state.app.locale,
     loading:state.ajaxCallsInProgress > 0
   }
 }
