@@ -8,9 +8,8 @@ import {Route} from 'react-router-dom';
 class App extends Component{
   renderChildren(){
     let {children} = this.props;
-
     return React.Children.map(children, (child) =>
-      React.cloneElement(child,{locale:'zh-tw'})
+      React.cloneElement(child,{locale:this.props.locale})
     )
   }
   render(){

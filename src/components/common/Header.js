@@ -11,7 +11,8 @@ import Button from 'material-ui/Button';
 import TranslatorHOC from '../../HOC/TranslatorHOC';
 import BroadcastButton from './BroadcastButton';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
-
+import {bindActionCreators} from 'redux';
+import * as appActions from '../../actions/appActions';
 const styleSheet = createStyleSheet('FlatButtons', theme => ({
   button: {
     margin: theme.spacing.unit,
@@ -24,10 +25,10 @@ const isMobile =() => {
   if( navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) return true;
   return false
 }
-const options = [
-  'English',
-  'Chinese'
-];
+const options = {
+  'en': 'English',
+  'zh-tw': 'Chinese'
+};
 
 class Header extends Component {
   constructor(props, context){
@@ -43,6 +44,7 @@ class Header extends Component {
   };
 
   handleMenuItemClick = (event, index) => {
+    this.props.actions.changeLocale(Object.keys(options)[index]);
     this.setState({ selectedIndex: index, open: false });
   };
 
@@ -86,13 +88,13 @@ class Header extends Component {
             open={this.state.open}
             onRequestClose={this.handleRequestClose}
           >
-            {options.map((option, index) =>
+            {Object.keys(options).map((option, index) =>
               <MenuItem
                 key={option}
                 selected={index === this.state.selectedIndex}
                 onClick={event => this.handleMenuItemClick(event, index)}
               >
-                {option}
+                {options[option]}
               </MenuItem>
             )}
           </Menu>
@@ -113,5 +115,9 @@ function mapStateToProps(state, ownProps){
     loading:state.ajaxCallsInProgress > 0
   };
 }
-
-export default TranslatorHOC(connect(mapStateToProps)(withStyles(styleSheet)(Header)));
+function mapDispatchToProps(dispatch){
+  return {
+    actions: bindActionCreators(appActions, dispatch)
+  }
+}
+export default TranslatorHOC(connect(mapStateToProps, mapDispatchToProps)(withStyles(styleSheet)(Header)));
