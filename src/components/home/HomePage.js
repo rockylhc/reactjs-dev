@@ -25,11 +25,11 @@ const styleSheet = createStyleSheet('Homepage', theme => ({
 }));
 
 class HomePage extends Component{
-  constructor(props, context){
-    super(props, context);
+  constructor(props){
+    super(props);
   }
   render(){
-    const {i18n, classes} = this.props;
+    const {classes, i18n} = this.props;
 
     return(
       <div>

@@ -10,7 +10,7 @@ import ViewTodoPage from './components/todo/ViewTodoPage';
 const RouteConfig = ()=> (
   <Switch>
     <App>
-      <Route exact path="/" render={props => <HomePage {...props} /> }/>
+      <Route exact path="/" render={props => { return <HomePage {...props} />} }/>
       <Route path='/about' component={AboutPage}/>
       <Route exact path='/todo' component={TodoPage}/>
       <Route exact path='/create/todo' component={ManageTodoPage}/>

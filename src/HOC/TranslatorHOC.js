@@ -1,16 +1,16 @@
 import React,{Component} from 'react';
+import {connect} from 'react-redux';
 const defaultLocale = 'en';
 
-const TranslatorHOC = (WrappedComponent) => {
+const TranslatorHOC = (WrappedComponent)  => {
   return class TranslatorHOC extends Component{
-    constructor(props) {
+    constructor(props){
       super(props);
-
     }
     render(){
-      console.log(this)
-      let currLocale = this.props.locale;
 
+      let currLocale = this.props.locale;
+      console.log(this);
       let language;
       try{
         language = require(`../locales/${currLocale}.json`);
@@ -28,5 +28,7 @@ const TranslatorHOC = (WrappedComponent) => {
     }
   }
 }
+
+
 
 export default TranslatorHOC;

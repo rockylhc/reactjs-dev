@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import Footer from './footer';
 import Header from './common/Header';
 import Grid from 'material-ui/Grid';
-import {Route} from 'react-router-dom';
 
 class App extends Component{
   renderChildren(){

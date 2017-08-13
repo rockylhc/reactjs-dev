@@ -8,8 +8,9 @@ import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 import createPalette from 'material-ui/styles/palette';
 import 'typeface-roboto';
 import './assets/css/style.scss';
-import { ConnectedRouter } from 'connected-react-router';
+import { ConnectedRouter } from 'react-router-redux';
 import RouteConfig from './routes';
+
 
 const store = configureStore();
 store.dispatch(loadTodos());

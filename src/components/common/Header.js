@@ -27,7 +27,7 @@ const isMobile =() => {
 }
 const options = {
   'en': 'English',
-  'zh-tw': 'Chinese'
+  'zh-tw': '中文'
 };
 
 class Header extends Component {
@@ -53,7 +53,7 @@ class Header extends Component {
   };
 
   render() {
-    const {loading, classes, i18n} = this.props;
+    const {loading, classes, i18n, locale} = this.props;
 
     return(
       <Toolbar>
@@ -79,7 +79,7 @@ class Header extends Component {
               aria-controls="lock-menu"
               onClick={this.handleClickListItem}
             >
-              <ListItemText primary="English"/>
+              <ListItemText primary={options[locale]} />
             </ListItem>
           </List>
           <Menu

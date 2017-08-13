@@ -1,7 +1,11 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import Typography from 'material-ui/Typography';
 
 class AboutPage extends React.Component{
+  constructor(props){
+    super(props);
+  }
   render(){
     return(
       <div className='jumbotron'>
@@ -16,4 +20,11 @@ class AboutPage extends React.Component{
   }
 }
 
-export default AboutPage;
+function mapStateToProps(state, ownProps){
+  console.log(state)
+  return {
+    locale: state.app.locale
+  };
+}
+
+export default connect(mapStateToProps)(AboutPage);
