@@ -20,12 +20,12 @@ class Footer extends Component{
       this.setState({open:false});
   }
   render(){
-    const {announcement} = this.props;
+    const {announcement, i18n} = this.props;
 
     return (
         <footer>
             <Typography type="body1" gutterBottom align="left">
-              I'm Footer
+              {i18n['footerText']}
             </Typography>
             <NotificationCenter announcement={announcement} open={this.state.open} handleRequestClose={this.handleRequestClose} />
         </footer>
@@ -39,4 +39,4 @@ function mapStateToProps(state, ownProps){
   }
 }
 
-export default TranslatorHOC(connect(mapStateToProps)(Footer));
+export default connect(mapStateToProps)(TranslatorHOC(Footer));

@@ -7,10 +7,11 @@ import TodoPage from './components/todo/TodoPage';
 import ManageTodoPage from './components/todo/ManageTodoPage';
 import ViewTodoPage from './components/todo/ViewTodoPage';
 
-const RouteConfig = ()=> (
+const RouteConfig = (someProps)=> (
+
   <Switch>
     <App>
-      <Route exact path="/" render={props => { return <HomePage {...props} />} }/>
+      <Route exact path="/" component={HomePage} />
       <Route path='/about' component={AboutPage}/>
       <Route exact path='/todo' component={TodoPage}/>
       <Route exact path='/create/todo' component={ManageTodoPage}/>

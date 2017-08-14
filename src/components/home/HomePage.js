@@ -53,4 +53,4 @@ function mapStateToProps(state, ownProps){
   };
 }
 
-export default TranslatorHOC(connect(mapStateToProps)(withStyles(styleSheet)(HomePage)));
+export default connect(mapStateToProps)(TranslatorHOC(withStyles(styleSheet)(HomePage)));

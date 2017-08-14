@@ -3,6 +3,7 @@
   "addTodo":"新增 Todo",
   "date": "日期",
   "deleteTodo":"刪除 Todo",
+  "footerText":"我是腳",
   "home":"首頁",
   "manageTodo":"管理 Todo",
   "navigation.todo":"Todo",

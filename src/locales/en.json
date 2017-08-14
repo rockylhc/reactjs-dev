@@ -3,6 +3,7 @@
   "addTodo":"Add Todo",
   "date":"Date",
   "deleteTodo":"Delete Todo",
+  "footerText":"I'm Footer",
   "home":"Home",
   "manageTodo":"Manage Todo",
   "navigation.todo":"Todo",

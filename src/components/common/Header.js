@@ -120,4 +120,4 @@ function mapDispatchToProps(dispatch){
     actions: bindActionCreators(appActions, dispatch)
   }
 }
-export default TranslatorHOC(connect(mapStateToProps, mapDispatchToProps)(withStyles(styleSheet)(Header)));
+export default connect(mapStateToProps, mapDispatchToProps)(TranslatorHOC(withStyles(styleSheet)(Header)));

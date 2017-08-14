@@ -55,4 +55,4 @@ function mapDispatchToProps(dispatch){
   }
 }
 
-export default TranslatorHOC(connect(mapStateToProps, mapDispatchToProps)(withStyles(styleSheet)(TodoPage)));
+export default connect(mapStateToProps, mapDispatchToProps)(TranslatorHOC(withStyles(styleSheet)(TodoPage)));

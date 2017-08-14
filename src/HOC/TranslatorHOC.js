@@ -10,7 +10,7 @@ const TranslatorHOC = (WrappedComponent)  => {
     render(){
 
       let currLocale = this.props.locale;
-      console.log(this);
+
       let language;
       try{
         language = require(`../locales/${currLocale}.json`);

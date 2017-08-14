@@ -5,12 +5,6 @@ import Header from './common/Header';
 import Grid from 'material-ui/Grid';
 
 class App extends Component{
-  renderChildren(){
-    let {children} = this.props;
-    return React.Children.map(children, (child) =>
-      React.cloneElement(child,{locale:this.props.locale})
-    )
-  }
   render(){
       return (
           <Grid container>
@@ -18,12 +12,14 @@ class App extends Component{
               <Header {...this.props}  />
             </Grid>
             <Grid item xs={12}>
-              {this.renderChildren()}
+              {this.props.children}
+            </Grid>
+            <Grid item xs={12}>
+              <Footer {...this.props}  />
             </Grid>
           </Grid>
       );
   }
-
 }
 
 function mapStateToProps(state, ownProps){

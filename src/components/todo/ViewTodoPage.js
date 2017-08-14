@@ -10,7 +10,6 @@ class ViewTodoPage extends React.Component{
     this.state = {
       todo:Object.assign({},this.props.todo)
     };
-
   }
 
   componentWillReceiveProps(nextProps){
