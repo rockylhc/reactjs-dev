@@ -1,12 +1,18 @@
 {
   "aboutUs": "關於我們",
+  "aboutTxt": "我們是誰",
   "addTodo":"新增 Todo",
+  "clear":"清除",
   "date": "日期",
   "deleteTodo":"刪除 Todo",
   "footerText":"我是腳",
   "home":"首頁",
   "manageTodo":"管理 Todo",
   "navigation.todo":"Todo",
+  "reset":"還原",
+  "submit":"提交",
+  "todo.title":"標題",
   "view":"查看",
-  "validationMessageMinLength":"請輸入至少${length}字元"
+  "validationMessageMinLength":"請輸入至少${length}字元",
+  "validationMessageRequired":"必填欄位"
 }

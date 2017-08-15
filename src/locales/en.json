@@ -1,12 +1,18 @@
 {
   "aboutUs": "About Us",
+  "aboutTxt": "We are nobody",
   "addTodo":"Add Todo",
+  "clear":"Clear",
   "date":"Date",
   "deleteTodo":"Delete Todo",
   "footerText":"I'm Footer",
   "home":"Home",
   "manageTodo":"Manage Todo",
   "navigation.todo":"Todo",
+  "reset":"Reset",
+  "submit":"Submit",
+  "todo.title":"Title",
   "view":"View",
-  "validationMessageMinLength":"Please enter at least ${length} character"
+  "validationMessageMinLength":"Please enter at least ${length} character",
+  "validationMessageRequired":"Required field"
 }

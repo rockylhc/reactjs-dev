@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import Footer from './footer';
+import Footer from './common/Footer';
 import Header from './common/Header';
 import Grid from 'material-ui/Grid';
 

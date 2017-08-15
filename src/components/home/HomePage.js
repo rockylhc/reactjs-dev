@@ -9,8 +9,7 @@ import TranslatorHOC from '../../HOC/TranslatorHOC';
 
 const styleSheet = createStyleSheet('Homepage', theme => ({
   root: theme.mixins.gutters({
-    paddingTop: 16,
-    paddingBottom: 16,
+    padding: 30,
   }),
   button: {
     margin: theme.spacing.unit,
@@ -32,17 +31,16 @@ class HomePage extends Component{
     const {classes, i18n} = this.props;
 
     return(
-      <div>
-        <Paper>
-          <Typography type="headline" component="h1">
-            {i18n['home']}
-          </Typography>
-          <Link to='/about'>
-            <Button className={classes.button} raised>{i18n['aboutUs']}</Button>
-          </Link>
-          <Link to='about'><Button className={classes.button} raised>{i18n['view']}</Button></Link>
-        </Paper>
-      </div>
+      <Paper className={classes.root}>
+        <Typography type="headline" component="h1">
+          {i18n['home']}
+        </Typography>
+        <Link to='/about'>
+          <Button className={classes.button} raised>{i18n['aboutUs']}</Button>
+        </Link>
+        <Link to='about'><Button className={classes.button} raised>{i18n['view']}</Button></Link>
+      </Paper>
+
     );
   }
 }

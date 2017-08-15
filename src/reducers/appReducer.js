@@ -8,9 +8,12 @@ export default function appReducer(state, action){
   }
 
   if(action.type == types.NOTIFICATION_TRIGGER){
-    return Object.assign({}, state, {announcement:action.announcement});
-
+    return Object.assign({}, state, {announcement:action.announcement, openAnnouncement:true});
   }
+  if(action.type == types.NOTIFICATION_CLOSE){
+    return Object.assign({}, state, {openAnnouncement:false});
+  }
+
   if(action.type == types.CHANGE_LOCALE){
     return Object.assign({}, state,{locale:action.locale})
   }

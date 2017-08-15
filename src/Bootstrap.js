@@ -10,7 +10,7 @@ import 'typeface-roboto';
 import './assets/css/style.scss';
 import { ConnectedRouter } from 'react-router-redux';
 import RouteConfig from './routes';
-
+import CircularIndeterminate from './components/common/CIrcularIndeterminate';
 
 const store = configureStore();
 store.dispatch(loadTodos());
@@ -24,18 +24,18 @@ const theme = createMuiTheme({
 class AppWrapper extends Component{
   constructor(){
     super();
-    this.state = {rehydrated:false}
+    this.state = {loading:true}
   }
   componentWillMount(){
     persistStore(store, {}, () => {
-      this.setState({ rehydrated: true })
+      this.setState({ loading: false })
     });
   }
 
   render() {
 
-    if(!this.state.rehydrated){
-      return <div>Loading...</div>
+    if(this.state.loading){
+      return <CircularIndeterminate />
     }
     return (
       <Provider store={store}>

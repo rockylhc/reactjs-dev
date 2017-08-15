@@ -20,14 +20,13 @@ class ManageTodoPage extends React.Component{
     this.state = {
       todo:Object.assign({},props.todo),
       errors:{},
-      saving: false
+      saving: false,
+      timestamp: Math.floor(Date.now() / 1000)
     };
 
-    this.handleFocus = this.handleFocus.bind(this);
     this.updateTodoState = this.updateTodoState.bind(this);
     this.saveTodo = this.saveTodo.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-    this.handleReset = this.handleReset.bind(this);
+    this.handleClear = this.handleClear.bind(this);
   }
   componentWillReceiveProps(nextProps){
     if(this.props.todo.guid != nextProps.todo.guid){
@@ -40,50 +39,39 @@ class ManageTodoPage extends React.Component{
     return this.setState(update(this.state,{todo:{[el]:{$set:val}}}));
   }
 
-  handleFocus(event){
-    console.log(this.state);
-    //let todo = this.state.todo;
-    //todo["isTouched"] = true;
-    //return this.setState({todo:todo});
-  }
-
-  handleClick(event){
+  handleClear(event){
     event.preventDefault();
-    //console.log('click');
-  }
-
-  handleReset(event){
-    event.preventDefault();
-    //console.log(this);
+    this.setState({
+      todo:{title:'',guid:'',id:''},
+      timestamp:Math.floor(Date.now() / 1000)
+    });
   }
 
   saveTodo(event, dispatch){
-    event.preventDefault();
+    //event.preventDefault();
     this.setState({saving:true});
-    //console.log(this.state)
-    /*
+    console.log(this.state.todo);
     this.props.actions.saveTodo(this.state.todo)
       .then(()=> this.redirect())
       .catch(error=>{
         this.setState({saving:false});
         console.log(error);
       });
-      */
   }
 
   redirect(){
     this.setState({saving:false});
-    //hashHistory.replace('/todo');
+    this.props.history.push('/todo');
   }
 
   render(){
+    const {locale} = this.props;
     return (
       <TodoForm
+        key={this.state.timestamp}
+        locale={locale}
         onChange={this.updateTodoState}
-        onFocus={this.handleFocus}
-        onBlur={this.validateState}
-        onClick={this.handleClick}
-        onReset={this.handleReset}
+        onClear={this.handleClear}
         onSave={this.saveTodo}
         todo={this.state.todo}
         errors={this.state.errors}
@@ -111,7 +99,8 @@ function mapStateToProps(state, ownProps){
 
   return{
     todo:todo,
-    errors:errors
+    errors:errors,
+    locale:state.app.locale
   };
 }
 

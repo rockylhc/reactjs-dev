@@ -29,7 +29,7 @@ export let saveTodo = (todo) =>{
   return function (dispatch, getState){
     dispatch(beginAjaxCall());
     return todoApi.saveTodo(todo).then(savedTodo=>{
-      todo.id ? dispatch(updateTodoSuccess(savedTodo)) :
+      todo.id ? dispatch(updateTodoSuccess(savedTodo)):
       dispatch(createTodoSuccess(savedTodo));
     }).catch(error=>{
       dispatch(ajaxCallError(error));
