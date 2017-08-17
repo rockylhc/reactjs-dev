@@ -2,7 +2,7 @@ import * as types from '../actions/actionTypes';
 import initialState from './initialState';
 import {REHYDRATE} from 'redux-persist/constants';
 
-export default function appReducer(state, action){
+export default function appReducer(state=initialState.app, action){
   if(action.type==types.REHYDRATE){
     return Object.assign({}, state, action.payload.app);
   }
@@ -18,5 +18,5 @@ export default function appReducer(state, action){
     return Object.assign({}, state,{locale:action.locale})
   }
 
-  return state|| {...initialState.app};
+  return state;
 }

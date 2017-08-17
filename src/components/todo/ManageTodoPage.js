@@ -5,6 +5,7 @@ import * as TodoActions from '../../actions/todoActions';
 import TodoForm from './TodoForm';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import TranslatorHOC from '../../HOC/TranslatorHOC';
+import ProtectedHOC from '../../HOC/ProtectedHOC';
 import update from 'immutability-helper';
 
 const styleSheet = createStyleSheet('PaperSheet', theme => ({
@@ -100,7 +101,8 @@ function mapStateToProps(state, ownProps){
   return{
     todo:todo,
     errors:errors,
-    locale:state.app.locale
+    locale:state.app.locale,
+    user:state.user
   };
 }
 
@@ -110,4 +112,4 @@ function mapDispatchToProps(dispatch){
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TranslatorHOC(withStyles(styleSheet)(ManageTodoPage)));
+export default connect(mapStateToProps, mapDispatchToProps)(TranslatorHOC(withStyles(styleSheet)(ProtectedHOC(ManageTodoPage))));

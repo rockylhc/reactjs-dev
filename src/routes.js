@@ -6,12 +6,14 @@ import AboutPage from './components/about/AboutPage';
 import TodoPage from './components/todo/TodoPage';
 import ManageTodoPage from './components/todo/ManageTodoPage';
 import ViewTodoPage from './components/todo/ViewTodoPage';
+import Login from './components/user/Login';
 
 const RouteConfig = (someProps)=> (
 
   <Switch>
     <App>
       <Route exact path="/" component={HomePage} />
+      <Route exact path="/login" component={Login} />
       <Route path='/about' component={AboutPage}/>
       <Route exact path='/todo' component={TodoPage}/>
       <Route exact path='/create/todo' component={ManageTodoPage}/>

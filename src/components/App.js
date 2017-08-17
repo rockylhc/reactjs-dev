@@ -25,9 +25,9 @@ class App extends Component{
 function mapStateToProps(state, ownProps){
   return {
     locale:state.app.locale,
-    loading:state.ajaxCallsInProgress > 0
+    loading:state.ajaxCallsInProgress > 0,
+    user:state.user
   }
 }
 
 export default connect(mapStateToProps)(App);
-

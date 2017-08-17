@@ -9,9 +9,12 @@
   "home":"Home",
   "manageTodo":"Manage Todo",
   "navigation.todo":"Todo",
+  "password":"Password",
+  "rememberMe":"Remember Me",
   "reset":"Reset",
   "submit":"Submit",
   "todo.title":"Title",
+  "username":"Username",
   "view":"View",
   "validationMessageMinLength":"Please enter at least ${length} character",
   "validationMessageRequired":"Required field"
